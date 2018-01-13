@@ -2,7 +2,8 @@ var app={
 	layerData:[],
 	kmlCacheData:[],
 	makeConversion:function(){
-		var layers=jsdata[1][6];
+		var data=JSON.parse(jsdata),
+		layers=data[1][6];
 		
 		for(var i=0;i<layers.length;i++){
 			var aLayer=layers[i];
