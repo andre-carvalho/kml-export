@@ -2,7 +2,8 @@ var app={
 	layerData:[],
 	kmlCacheData:[],
 	makeConversion:function(){
-		var data=JSON.parse(jsdata),
+		//var data=JSON.parse(jsdata),
+		var data=jsdata,
 		layers=data[1][6];
 		
 		for(var i=0;i<layers.length;i++){
@@ -111,11 +112,11 @@ var app={
 	},
 	removeSpecialChars:function(str) {
 		str = str.replace(/[áàãâä]/gi, 'a');
-        str = str.replace(/[éèêë]/gi, 'e');
+        str = str.replace(/[éèêë&]/gi, 'e');
         str = str.replace(/[íìîï]/gi, 'i');
         str = str.replace(/[óòõôö]/gi, 'o');
         str = str.replace(/[úùûü]/gi, 'u');
-        str = str.replace(/[ç]/gi, 'c');
+		str = str.replace(/[ç]/gi, 'c');
         return str;
 	},
 	createButton:function(layerName,id){
