@@ -1,6 +1,8 @@
 
 # Primeiro método
 
+!!Não pode estar logado no google
+
 Procurar este nome na aba Network (mapspro.gmeviewer)
 Colocar um break no item: k._pageData
 Imprimir no console o valor de k._pageData
