@@ -117,7 +117,7 @@ var app={
         str = str.replace(/[íìîï]/gi, 'i');
         str = str.replace(/[óòõôö]/gi, 'o');
         str = str.replace(/[úùûü]/gi, 'u');
-        str = str.replace(/[ç]/gi, 'c');
+		str = str.replace(/[ç]/gi, 'c');
         return str;
 	},
 	removeOldButtons:function() {
