@@ -2,7 +2,10 @@ var app={
 	layerData:[],
 	kmlCacheData:[],
 	makeConversion:function(){
-		var layers=jsdata[1][6];
+		this.removeOldButtons();
+		app.layerData=[];
+		var data=JSON.parse(jsdata),
+		layers=data[1][6];
 		
 		for(var i=0;i<layers.length;i++){
 			var aLayer=layers[i];
@@ -110,12 +113,18 @@ var app={
 	},
 	removeSpecialChars:function(str) {
 		str = str.replace(/[áàãâä]/gi, 'a');
-        str = str.replace(/[éèêë]/gi, 'e');
+        str = str.replace(/[éèêë&]/gi, 'e');
         str = str.replace(/[íìîï]/gi, 'i');
         str = str.replace(/[óòõôö]/gi, 'o');
         str = str.replace(/[úùûü]/gi, 'u');
-        str = str.replace(/[ç]/gi, 'c');
+		str = str.replace(/[ç]/gi, 'c');
         return str;
+	},
+	removeOldButtons:function() {
+		var output=document.getElementById("kml");
+		while (output.firstChild) {
+			output.removeChild(output.firstChild);
+		}
 	},
 	createButton:function(layerName,id){
 		var btn = document.createElement("BUTTON");
@@ -123,10 +132,10 @@ var app={
 		btn.appendChild(t);
 		btn.onclick = function(){app.downloadKml(layerName,id);};
 		
-		var kmlWindow=document.getElementById("kml");
-		kmlWindow.appendChild(btn);
+		var output=document.getElementById("kml");
+		output.appendChild(btn);
 		var hr = document.createElement("HR");
-		kmlWindow.appendChild(hr);
+		output.appendChild(hr);
 	},
 	downloadKml:function(fileName,id){
 		var k=app.kmlCacheData[id];
