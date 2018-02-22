@@ -1,11 +1,3 @@
-# Packages #
-############
-*.zip
-
 # Folders  #
 ############
-page/
-
-# Shell    #
-############
-*.sh
+raw-data/
